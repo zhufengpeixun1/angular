@@ -26,17 +26,20 @@ theme:colors
       bower install angular
     ```
 - ng-app(rootScope->ngapp)
-- ng-app 指令在网页加载完毕时会自动引导(自动初始化)应用程序
+- ng-app 指令在网页加载完毕时会自动引导(自动初始化)应用程序  
+
 [slide]
 # 初识ng-model
 - ng-app里面的所有的内容都归angular来管 {:&.moveIn}
 - 将ng-model生成数据模型然后挂在rootScope上
-- 实现model和view的双向绑定(变量和视图进行绑定)
+- 实现model和view的双向绑定(变量和视图进行绑定)  
+
 [slide]
 # 表达式
 - {{}} 两个花括号{{}}组成，可以把数据绑定到HTML {:&.moveIn}
 - 可以用来做表达式结果
-- 可以使用三元表达式
+- 可以使用三元表达式  
+
 [slide]
 # 数据绑定
 - ng-bind 显示数据类似于 {{}} 防止用户看到被渲染之前的样子 {:&.moveIn}
@@ -44,12 +47,14 @@ theme:colors
 - ng-bind-template 解决 ng-bind 中只能绑定一个的问题
     ```
     <div ng-bind-template="{{name}} {{age}}"></div>
-    ```
+    ```  
+
 [slide]
 # ng-init
 - ng-init 指令为 AngularJS 应用程序定义了 初始值。 {:&.moveIn}  
 - 不仅可以赋值字符串,也可以赋值数字,数组,对象
-> 通常情况下,不使用 ng-init。使用一个控制器或模块来代替它。
+> 通常情况下,不使用 ng-init。使用一个控制器或模块来代替它。  
+
 [slide]
 # data-指令
 - data-ng-init 与 ng-init 等价 {:&.moveIn}
@@ -66,14 +71,17 @@ theme:colors
     </div>
 </div>
 ```
-- 遍历数组需注意track by $index
+- 遍历数组需注意track by $index  
+
 [slide]
 # ng-click
-- 显示隐藏/效果 {:&.moveIn}
+- 显示隐藏/效果 {:&.moveIn}  
+
 [slide]
 # ng-hide/ng-show/ng-if
 - 布尔类型 为true执行内部指令，为false时不执行内部指令 {:&.moveIn}
-- ng-if为false时候内部节点消失
+- ng-if为false时候内部节点消失  
+
 [slide]
 # ng-switch  
 ```
@@ -84,8 +92,9 @@ theme:colors
     <p ng-switch-when="girl">789</p>
     <p ng-switch-default>10000</p>
 </div>
-```
-[slide]
+```  
+
+[slide]  
 # 增加class值
 - ng-class ="{true:'',false:''}[isActive]"; {:&.moveIn}
 - ng-class ="{'selected':isSelected}";
@@ -101,15 +110,18 @@ theme:colors
     <li role="presentation" ng-click="click='Profile'" ng-class="{active:click=='Profile'}"><a href="">Profile</a></li>
     <li role="presentation" ng-click="click='Messages'" ng-class="{active:click=='Messages'}"><a href="">Messages</a></li>
 </ul>
-```
+```  
+
 [slide]
 # 引入页面
-- ng-include 加载外部页面 {:&.moveIn}
+- ng-include 加载外部页面 {:&.moveIn}  
+
 [slide]
 # currency 货币过滤器
 ```
 {{100 | currency:'￡' }}
-```
+```  
+
 [slide]
 # lowercase & uppercase 大小写转换过滤器
 ```
@@ -124,38 +136,44 @@ theme:colors
 # limitTo 限制位数
 ```
 {{123456 | limitTo:5}}
-```
+```  
+
 [slide]
 # number 数字过滤器
 ```
 {{1234.2345|number:2}}
-```
+```  
+
 [slide]
 # json 对象过滤器
 ```
 <pre>
 {{{aa:123,bb:456} | json}}
 </pre>
-```
+```  
+
 [slide]
 # date 日期过滤器
 ```
 {{1654325689063 | date:'yyyy-MM-dd hh:mm:ss'}}
-```
+```  
+
 [slide]
 #  orderBy
 ```
     <div ng-repeat="p in phones | orderBy:'-age':'reverse'">
         {{p.name}}
     </div>
-```
+```  
+
 [slide]
 # filter 查询过滤器
 ```
 <div ng-repeat="p in phones | filter:{age:query}">
     {{p.name}}
 </div>
-```
+```  
+
 [slide]
 # angular工具方法
 - angular.uppercase
@@ -166,7 +184,8 @@ theme:colors
 - angular.toJson
 - angular.copy
 - angular.forEach
-- angular.bind
+- angular.bind  
+
 [slide]
 # angular.uppercase&&angular.lowercase
 ```
@@ -174,20 +193,24 @@ var abc = angular.uppercase("aaaa");
 console.log(abc);
 var abc = angular.lowercase("aaaa");
 console.log(abc);
-```
+```  
+
 [slide]
 # angular.equals
 ```
 var a = angular.equals(NaN,NaN);
 console.log(a);
-```
+```  
+
 [slide]
 # angular.extend
-```
+```  
+
 var obj = {a:123},obj1 = {b:456};
 angular.extend(obj,obj1);
 console.log(obj);
-```
+```  
+
 [slide]
 # angular.fromJson&&angular.toJson
 ```
@@ -195,14 +218,16 @@ var obj = '{"aa":123,"bb":456}';
 var a =angular.fromJson(obj);
 a = angular.toJson(a);
 console.log(a);
-```
+```  
+
 [slide]
 # angular.copy
 ```
 var obj = {a:123},obj1 = {b:456};
 angular.copy(obj,obj1);
 console.log(obj1);
-```
+```  
+
 [slide]
 # angular.forEach
 ```
@@ -211,7 +236,8 @@ var result = [];
 angular.forEach(arr,function (item) {
     this.push(item.name);
 },result);
-```
+```  
+
 [slide]
 # angular.bind
 ```
@@ -219,20 +245,23 @@ var obj = {name:2};
 function arr(who){console.log(this.name+who);}
 var newArr =  angular.bind(obj,arr,1);
 newArr();
-```
+```  
+
 [slide]
 # AngularJs MVC
 - Model:数据`模型`层 {:&.moveIn}
 - View:`视图`层,负责展示
 - Controller:业务逻辑和`控制`逻辑
-> MVC只是手段，目标是模块化和复用
+> MVC只是手段，目标是模块化和复用  
+
 [slide]
 # 模块化(解决污染全局命名空间)
 - 一切从模块开始 {:&.moveIn}
  angular.module(name, [requires], [configFn]);
    - name：字符串类型，代表模块的名称； {:&.rollIn}
    - requires：字符串的数组，代表该模块依赖的其他模块列表，如果不依赖其他模块，用空数组即可；
-   - configFn：用来对该模块进行一些配置。
+   - configFn：用来对该模块进行一些配置。  
+
 [slide]
 # 控制器
 - controller和DOM平行 {:&.moveIn}
@@ -242,7 +271,8 @@ newArr();
     - 不要复用controller {:&.rollIn}
     - 不要在controller中操作DOM
     - 不要再controller里格式化数据
-    - 控制器之间交互是通过事件进行的
+    - 控制器之间交互是通过事件进行的  
+
 [slide]
 # $scope和$rootScope
 - viewModel是$scope对象 {:&.moveIn}
@@ -272,7 +302,8 @@ md.run(["$rootScope",function($s){
 - $apply你需要命令 AngularJS 刷新自已(模型、视图等)
     ```
     $scope.$apply(function(){})
-    ```
+    ```  
+
 [slide]
 # ng-href
 - 表达式生效前不要加载该资源
@@ -284,7 +315,8 @@ var app = angular.module('appModule',[]);
             $scope.myHref = 'http://www.baidu.com'
         },20000)
     })
-```
+```  
+
 [slide]
 #ng-src
 ```
@@ -295,24 +327,28 @@ var app = angular.module('appModule',[]);
             $scope.imgSrc = 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png';
         }, 1000);
     })
-```
+```  
+
 [slide]
 # 当鼠标离开时改变model的变化
 - ng-model-options
 ```
 ng-model-options="{ updateOn: 'blur' }"
-```
+```  
+
 [slide]
 # event 事件的监听机制
 - $broadcast {:&.moveIn}
 - $emit
-- $on
+- $on  
+
 [slide]
 # angular中的事件
 - ng-change {:&.moveIn}
 - ng-copy
 - ng-cut
-- ng-paste
+- ng-paste  
+
 [slide]
 # input相关指令
 - ng-disabled 设置不可用
@@ -331,7 +367,8 @@ app.controller('totalCtrl', function ($scope,$interval) {
                 },100);
             }
 });
-```
+```  
+
 [slide]
 # ng-readonly
 ## 通过表达式返回值true/false将表单输入字段设为只读。
@@ -343,7 +380,8 @@ app.controller('totalCtrl', function ($scope,$interval) {
         $rootScope.stop = true;
     },3000)
 })
-```
+```  
+
 [slide]
 # ng-checked&ng-selected&ng-value
 - ng-checked 设置checkbox选中 {:&.moveIn}
@@ -361,7 +399,8 @@ app.controller('totalCtrl', function ($scope,$interval) {
     app1.controller('totalCtrl', function ($scope,$interval) {
         $scope.name = 20;
     });
-```
+```  
+
 [slide]
 # 启动多个ng-app
 - angular.bootstrap
@@ -370,7 +409,8 @@ document.body.onclick = function () {
         angular.bootstrap(div1,['formApp1']);
         angular.bootstrap(div2,['formApp2']);
     }
-```
+```  
+
 [slide]
 # $http 服务
 - $http {:&.moveIn}
@@ -386,7 +426,8 @@ document.body.onclick = function () {
     })
 ```
 - GET请求params:{data:1}
-- POST请求data:{data:1}
+- POST请求data:{data:1}  
+
 [slide]
 # $http中get&post
 - get {:&.moveIn}
@@ -400,7 +441,8 @@ document.body.onclick = function () {
 $http.post('/ajax',{data:2}).success(function (data,status,headers,config) {
        $scope.data = data;
 })
-```
+```  
+
 [slide]
 # $http jsonp
 ```
@@ -408,7 +450,8 @@ $http.jsonp('/ajax3').success(function (data,status,headers,config) {
      $scope.data = data;
 })
 angular.callbacks._0([{name:1}]);
-```
+```  
+
 [slide]
 # 过滤器
 - 在controller里使用过滤器 {:&.moveIn}
@@ -442,28 +485,33 @@ var app = angular.module('formApp1',[]);
 - replace	true,false	是否替换原有的DOM元素
 - transclude true,false	是否保留原有指令的内部元素
 - scope	true,false,{}	scope属性为指令创建私有的作用域
-- link	Function	link属性是一个函数，用来在指令中操作DOM树、实现数据绑定
+- link	Function	link属性是一个函数，用来在指令中操作DOM树、实现数据绑定  
+
 [slide]
 # template 定义替换模板
 - template指明一个HTML片段,可以用来替换指令的内容 {:&.moveIn}
 - 如果replace:true，那么用HTML片段替换指令本身
-- 如果transclue:true则包裹指令的内容
+- 如果transclue:true则包裹指令的内容  
+
 [slide]
 # restrict
 - 推荐使用元素和属性的方式使用指令 {:&.moveIn}
 - 组件式指令使用元素名称的方式创建指令
-- 装饰型指令使用属性的方式创建指令
+- 装饰型指令使用属性的方式创建指令  
+
 [slide]
 # scope
 - @	把当前属性作为字符串传递。你还可以绑定来自外层scope上的值，在属性中插入{{}}即可 {:&.moveIn}
 - =	与父scope中的属性进行双向绑定
-- & 方法传递
+- & 方法传递  
+
 [slide]
 # link:在指令中操作DOM
 - scope	指令对应的scope对象。如果指令没有定义自己的本地作用域，那么传入的就是外部的作用域对象 {:&.moveIn}
 - iElement	指令所在DOM对象的jqLite封装。如果使用了template属性，那么iElement对应 变换后的DOM对象的jqLite封装
 - iAttrs	指令所在DOM对象的属性集。这是一个Hash对象，每个键是驼峰规范化后的属性名
-- controller	控制器的实例,在所有指令间共享,可以作为指令交流的通道
+- controller	控制器的实例,在所有指令间共享,可以作为指令交流的通道  
+
 [slide]
 # angular验证
 - $dirty	表单中任何一项是否输入过
@@ -472,7 +520,8 @@ var app = angular.module('formApp1',[]);
 - $invalid	表单数据是否无效，只要有一项无效则整个表单无效
 - $valid	与$invalid相反
 - $name	表单的名字
-- email	表单各个输入框的model
+- email	表单各个输入框的model  
+
 [slide]
 # 创建服务组件
 - service都是单例的
@@ -480,7 +529,8 @@ var app = angular.module('formApp1',[]);
 - service在整个应用的生命周期存在，可以共享数据
 - provider 可配置,是唯一一种你可以传进 .config() 函数的 service。当你想要在 service 对象启用之前,先进行模块范围的配置,那就应该用 provider。
 - factory 失去配置能力
-- service 返回实例
+- service 返回实例  
+
 [slide]
 # provider
 ```
@@ -510,7 +560,8 @@ app.factory('my', function () {
             obj:obj
         }
     });
-```
+```  
+
 [slide]
 # service
 -  使用一个类构造函数定义服务，通过new操作符将创建服务实例。
@@ -523,7 +574,8 @@ app.factory('my', function () {
             return 2;
         }
     });
-```
+```  
+
 [slide]
 # constant
 - 需要在不同的组件之间共享一个常量
@@ -541,7 +593,8 @@ app.constant('my',{
         return 2
     }
 });
-```
+```  
+
 [slide]
 # value
 ```
@@ -563,7 +616,8 @@ app.constant('my',{
     - 状态转换 对url进行不同的请求方式(get post put delete);
 - (1)每一个 URI 代表一种资源;
 - (2)客户端和服务器之间,传递这种资源的某种表现层;
-- (3)客户端通过四个 HTTP 动词,对服务器端资源进行操作,实现"表现层状态转化"。
+- (3)客户端通过四个 HTTP 动词,对服务器端资源进行操作,实现"表现层状态转化"。  
+
 [slide]
 # ngResource
 - 安装resource
@@ -583,7 +637,8 @@ note.query({id:1});//GET
 note.save({id:1,name:2});//POST
 note.delete({id:1});//DELET
 note.update({id:1});//PUT
-```
+```  
+
 [slide]
 # ngRoute
 ```
